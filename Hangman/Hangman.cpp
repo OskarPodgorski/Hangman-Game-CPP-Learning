@@ -1,6 +1,8 @@
 ﻿#include <iostream>
+#include "Words.h"
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Words wordsDatabase("C:/words.txt");   
 }
