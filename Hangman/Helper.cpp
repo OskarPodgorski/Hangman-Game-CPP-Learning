@@ -1,8 +1,4 @@
 #include "Helper.h"
-#include <windows.h>
-#include <iostream>
-#include <filesystem>
-#include <random>
 
 std::filesystem::path Helper::GetProgramPath()
 {

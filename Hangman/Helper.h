@@ -1,4 +1,7 @@
+#include <windows.h>
+#include <iostream>
 #include <filesystem>
+#include <random>
 
 #pragma once
 class Helper

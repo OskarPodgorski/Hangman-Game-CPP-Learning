@@ -1,10 +1,4 @@
 #include "Words.h"
-#include <fstream>
-#include <iostream>
-#include <string>
-#include <vector>
-#include <filesystem>
-#include "Helper.h"
 
 vector<string> wordsVector;
 
@@ -12,8 +6,8 @@ vector<string> wordsVector;
 	{
 		fstream file(wordsFilePath);
 
-		std::string line;
-		while (std::getline(file, line))
+		string line;
+		while (getline(file, line))
 		{
 			wordsVector.emplace_back(line);
 		}
@@ -29,9 +23,9 @@ vector<string> wordsVector;
 		return wordsVector[Helper::GetRandomInt(0, wordsVector.size() - 1)];
 	}
 
-	std::filesystem::path Words::GetWordsFilePath()
+	filesystem::path Words::GetWordsFilePath()
 	{
-		std::filesystem::path pathFS = Helper::GetProgramPath();
+		filesystem::path pathFS = Helper::GetProgramPath();
 
 		pathFS = pathFS.parent_path();
 

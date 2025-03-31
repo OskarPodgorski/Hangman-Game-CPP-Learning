@@ -1,5 +1,6 @@
 #include <string>
 #include <cstring>
+#include <iostream>
 
 #pragma once
 class Game
@@ -11,8 +12,11 @@ public:
 	Game(const std::string& word);
 	~Game();
 
-private:
-	char* letters;
+	bool TryLetter(const char& letter);
 
+private:
+	char* originalLetters;
+
+	bool ContainsLetter(const char& letter);
 };
 
