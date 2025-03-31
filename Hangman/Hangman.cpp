@@ -8,5 +8,5 @@ int main()
 {
     Words wordsDatabase(Words::GetWordsFilePath().string());
 
-    cout << wordsDatabase.wordsVector.size() << endl;
+    cout << wordsDatabase.GetRandomWord() << endl;
 }

@@ -11,5 +11,7 @@ public:
 
 	Words(const string& wordsFilePath);
 
+	string GetRandomWord();
+
 	static std::filesystem::path GetWordsFilePath();
 };

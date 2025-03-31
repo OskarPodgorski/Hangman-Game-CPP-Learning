@@ -19,6 +19,16 @@ vector<string> wordsVector;
 		}
 	}
 
+	string Words::GetRandomWord()
+	{
+		if (wordsVector.empty()) 
+		{
+			return "";
+		}
+
+		return wordsVector[Helper::GetRandomInt(0, wordsVector.size() - 1)];
+	}
+
 	std::filesystem::path Words::GetWordsFilePath()
 	{
 		std::filesystem::path pathFS = Helper::GetProgramPath();
