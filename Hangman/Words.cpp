@@ -5,9 +5,9 @@
 #include <vector>
 
 
-	vector<string> wordsVector;
+vector<string> wordsVector;
 
-	Words::Words(const string & wordsFilePath)
+	Words::Words(const string& wordsFilePath)
 	{
 		fstream file(wordsFilePath);
 
