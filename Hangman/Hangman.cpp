@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-    Words wordsDatabase(Helper::GetProgramPath());   
+    Words wordsDatabase(Words::GetWordsFilePath().string());
 
     cout << wordsDatabase.wordsVector.size() << endl;
 }

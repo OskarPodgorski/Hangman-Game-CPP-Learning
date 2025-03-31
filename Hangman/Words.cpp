@@ -3,7 +3,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
+#include <filesystem>
+#include "Helper.h"
 
 vector<string> wordsVector;
 
@@ -16,4 +17,13 @@ vector<string> wordsVector;
 		{
 			wordsVector.emplace_back(line);
 		}
+	}
+
+	std::filesystem::path Words::GetWordsFilePath()
+	{
+		std::filesystem::path pathFS = Helper::GetProgramPath();
+
+		pathFS = pathFS.parent_path();
+
+		return pathFS.append("words.txt");
 	}

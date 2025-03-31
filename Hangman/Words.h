@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <filesystem>
 using namespace std;
 
 #pragma once
@@ -9,4 +10,6 @@ public:
 	vector<string> wordsVector;
 
 	Words(const string& wordsFilePath);
+
+	static std::filesystem::path GetWordsFilePath();
 };
