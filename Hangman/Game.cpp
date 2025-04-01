@@ -1,21 +1,12 @@
 #include "Game.h"
 
-std::string originalWord;
-unsigned char chances;
-char* originalLetters;
-
 Game::Game(const std::string& word)
 {
 	originalWord = word;
 	chances = 3;
 	originalLetters = new char[originalWord.size()+1];
 
-	std::strcpy(originalLetters, originalWord.c_str());
-}
-
-Game::~Game()
-{
-	delete[] originalLetters;
+	strcpy_s(originalLetters, originalWord.size() + 1, originalWord.c_str());
 }
 
 bool Game::TryLetter(const char& letter)
@@ -37,4 +28,9 @@ bool Game::ContainsLetter(const char& letter)
 		}
 	}
 	return false;
+}
+
+Game::~Game()
+{
+	delete[] originalLetters;
 }

@@ -1,7 +1,5 @@
 #include "Words.h"
 
-vector<string> wordsVector;
-
 	Words::Words(const string& wordsFilePath)
 	{
 		fstream file(wordsFilePath);
@@ -19,8 +17,9 @@ vector<string> wordsVector;
 		{
 			return "";
 		}
-
-		return wordsVector[Helper::GetRandomInt(0, wordsVector.size() - 1)];
+		
+		size_t wordsCount = wordsVector.size();
+		return wordsVector[Helper::GetRandomInt(0, wordsCount > 0 ? wordsCount - 1 : 0)];
 	}
 
 	filesystem::path Words::GetWordsFilePath()

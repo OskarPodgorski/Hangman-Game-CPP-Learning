@@ -10,6 +10,7 @@ using namespace std;
 class Words
 {
 public:
+
 	vector<string> wordsVector;
 
 	Words(const string& wordsFilePath);
@@ -17,4 +18,5 @@ public:
 	string GetRandomWord();
 
 	static std::filesystem::path GetWordsFilePath();
+
 };
