@@ -6,6 +6,8 @@ Game::Game(const std::string& word)
 	chances = 3;
 	originalLetters = Helper::StringToCharArray(originalWord);
 	modifiedLetters = Helper::StringToCharArray(originalWord);
+
+	MakeBlankSpaces();
 }
 
 bool Game::TryLetter(const char& letter)
@@ -19,6 +21,11 @@ bool Game::TryLetter(const char& letter)
 }
 
 int Game::GetChances() const { return static_cast<int>(chances); }
+
+std::string Game::GetWordProgress() const
+{
+	return modifiedLetters;
+}
 
 //private
 
@@ -36,12 +43,15 @@ bool Game::ContainsLetter(const char& letter)
 	return false;
 }
 
-char* Game::MakeBlankSpaces(const std::string& word)
+void Game::MakeBlankSpaces()
 {
+	int blankLetterIndex = Helper::GetRandomInt(0, originalWord.size() - 1);
 
+	modifiedLetters[blankLetterIndex] = '_';
 }
 
 Game::~Game()
 {
 	delete[] originalLetters;
+	delete[] modifiedLetters;
 }

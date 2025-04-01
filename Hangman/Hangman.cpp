@@ -9,7 +9,7 @@ int main()
 	Words wordsDatabase(Words::GetWordsFilePath().string());
 	Game game(wordsDatabase.GetRandomWord());
 
-	cout << game.originalWord << endl;
+	cout << game.GetWordProgress() << endl;
 
 	int chances = game.GetChances();
 

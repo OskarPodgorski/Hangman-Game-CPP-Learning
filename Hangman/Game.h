@@ -15,6 +15,7 @@ public:
 
 	bool TryLetter(const char& letter);
 	int GetChances() const;
+	std::string GetWordProgress() const;
 
 private:
 
@@ -23,5 +24,5 @@ private:
 	unsigned char chances;
 
 	bool ContainsLetter(const char& letter);
-	char* MakeBlankSpaces(const std::string& word);
+	void MakeBlankSpaces();
 };
