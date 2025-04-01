@@ -7,7 +7,7 @@ class Game
 {
 public:
 
-	std::string originalWord;	
+	std::string originalWord;
 	unsigned char chances;
 
 	Game(const std::string& word);

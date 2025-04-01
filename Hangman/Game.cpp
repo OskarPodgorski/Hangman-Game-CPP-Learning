@@ -11,7 +11,12 @@ Game::Game(const std::string& word)
 
 bool Game::TryLetter(const char& letter)
 {
-	return ContainsLetter(letter);
+	bool isCorrect = ContainsLetter(letter);
+
+	if (!isCorrect)
+		chances--;
+
+	return isCorrect;
 }
 
 //private

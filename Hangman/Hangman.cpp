@@ -6,11 +6,27 @@ using namespace std;
 
 int main()
 {
-    Words wordsDatabase(Words::GetWordsFilePath().string());
-    Game game(wordsDatabase.GetRandomWord());
+	Words wordsDatabase(Words::GetWordsFilePath().string());
+	Game game(wordsDatabase.GetRandomWord());
 
+	cout << game.originalWord << endl;
 
-    cout << game.originalWord << endl;
-    string boolState = game.TryLetter('c') ? "true" : "false";
-    cout << boolState << endl;
+	while (game.chances > 0)
+	{
+		cout << static_cast<int>(game.chances) << endl;
+		cout << "Input letter: ";
+		char letter;
+		cin >> letter;
+
+		bool isCorrect = game.TryLetter(letter);
+
+		if (isCorrect)
+			cout << "Good" << endl;
+		else
+		{
+			cout << "Wrong" << endl;
+		}
+	}
+
+	cout << "Game Over !" << endl;
 }
