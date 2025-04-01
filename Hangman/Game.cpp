@@ -4,9 +4,8 @@ Game::Game(const std::string& word)
 {
 	originalWord = word;
 	chances = 3;
-	originalLetters = new char[originalWord.size()+1];
-
-	strcpy_s(originalLetters, originalWord.size() + 1, originalWord.c_str());
+	originalLetters = Helper::StringToCharArray(originalWord);
+	modifiedLetters = Helper::StringToCharArray(originalWord);
 }
 
 bool Game::TryLetter(const char& letter)
@@ -27,14 +26,19 @@ bool Game::ContainsLetter(const char& letter)
 {
 	size_t size = originalWord.size();
 
-	for (size_t i = 0; i < size; i++) 
+	for (size_t i = 0; i < size; i++)
 	{
-		if (originalLetters[i] == letter) 
+		if (originalLetters[i] == letter)
 		{
 			return true;
 		}
 	}
 	return false;
+}
+
+char* Game::MakeBlankSpaces(const std::string& word)
+{
+
 }
 
 Game::~Game()

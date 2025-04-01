@@ -2,6 +2,7 @@
 #include <iostream>
 #include <filesystem>
 #include <random>
+#include <string>
 
 #pragma once
 class Helper
@@ -12,5 +13,6 @@ public:
 
     static int GetRandomInt(int min, int max);
 
+    static char* StringToCharArray(const std::string& str);
 };
 

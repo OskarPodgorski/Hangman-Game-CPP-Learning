@@ -1,6 +1,7 @@
 #include <string>
 #include <cstring>
 #include <iostream>
+#include "Helper.h";
 
 #pragma once
 class Game
@@ -18,8 +19,9 @@ public:
 private:
 
 	char* originalLetters;
+	char* modifiedLetters;
 	unsigned char chances;
 
 	bool ContainsLetter(const char& letter);
-
+	char* MakeBlankSpaces(const std::string& word);
 };
