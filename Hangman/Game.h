@@ -8,16 +8,17 @@ class Game
 public:
 
 	std::string originalWord;
-	unsigned char chances;
 
 	Game(const std::string& word);
 	~Game();
 
 	bool TryLetter(const char& letter);
+	int GetChances() const;
 
 private:
 
 	char* originalLetters;
+	unsigned char chances;
 
 	bool ContainsLetter(const char& letter);
 

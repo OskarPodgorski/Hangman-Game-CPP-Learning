@@ -19,6 +19,8 @@ bool Game::TryLetter(const char& letter)
 	return isCorrect;
 }
 
+int Game::GetChances() const { return static_cast<int>(chances); }
+
 //private
 
 bool Game::ContainsLetter(const char& letter)

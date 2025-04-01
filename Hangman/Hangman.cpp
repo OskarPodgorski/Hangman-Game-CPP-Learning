@@ -11,9 +11,11 @@ int main()
 
 	cout << game.originalWord << endl;
 
-	while (game.chances > 0)
+	int chances = game.GetChances();
+
+	while (chances > 0)
 	{
-		cout << static_cast<int>(game.chances) << endl;
+		cout << chances << endl;
 		cout << "Input letter: ";
 		char letter;
 		cin >> letter;
@@ -25,6 +27,7 @@ int main()
 		else
 		{
 			cout << "Wrong" << endl;
+			chances = game.GetChances();
 		}
 	}
 
