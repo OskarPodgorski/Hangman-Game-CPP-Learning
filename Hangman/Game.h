@@ -23,7 +23,8 @@ private:
 	char* originalLetters;
 	char* modifiedLetters;
 	unsigned char chances;
+	unsigned char lettersRemained;
 
-	bool InsertBlankLetter(const char& letter);
+	bool InsertLetterToBlank(const char& letter);
 	void MakeBlankSpaces(short numOfBlanks);
 };

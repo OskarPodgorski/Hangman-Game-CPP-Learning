@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <sstream>
+#include <cstdlib>
 #include "Words.h"
 #include "Helper.h"
 #include "Game.h"
@@ -10,16 +11,17 @@ int main()
 	Words wordsDatabase(Words::GetWordsFilePath().string());
 	Game game(wordsDatabase.GetRandomWord());
 
-	cout << game.GetWordProgress() << endl;
-
 	int chances = game.GetChances();
 	ostringstream strInt;
 
 	while (chances > 0)
-	{
+	{ 
+		//system("cls");
+
+		cout << game.GetWordProgress() << endl;
 		strInt << "You have " << chances << " chances left";
 		cout << strInt.str() << endl;
-		strInt.clear();
+		strInt = ostringstream();
 
 		cout << "Input letter: ";
 		char letter;

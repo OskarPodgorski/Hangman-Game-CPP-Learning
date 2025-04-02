@@ -3,16 +3,18 @@
 Game::Game(const std::string& word)
 {
 	originalWord = word;
-	chances = 3;
+	chances = 4;
+	lettersRemained = 3;
+
 	originalLetters = Helper::StringToCharArray(originalWord);
 	modifiedLetters = Helper::StringToCharArray(originalWord);
 
-	MakeBlankSpaces(3);
+	MakeBlankSpaces(lettersRemained);
 }
 
 bool Game::TryLetter(const char& letter)
 {
-	bool isCorrect = InsertBlankLetter(letter);
+	bool isCorrect = InsertLetterToBlank(letter);
 
 	if (!isCorrect)
 		chances--;
@@ -22,14 +24,11 @@ bool Game::TryLetter(const char& letter)
 
 int Game::GetChances() const { return static_cast<int>(chances); }
 
-std::string Game::GetWordProgress() const
-{
-	return modifiedLetters;
-}
+std::string Game::GetWordProgress() const { return modifiedLetters; }
 
 //private
 
-bool Game::InsertBlankLetter(const char& letter)
+bool Game::InsertLetterToBlank(const char& letter)
 {
 	bool isCorrect = false;
 	size_t size = originalWord.size();
@@ -50,6 +49,9 @@ bool Game::InsertBlankLetter(const char& letter)
 void Game::MakeBlankSpaces(short numOfBlanks)
 {
 	std::unordered_set<int> alreadyUsedIndexes;
+
+	if (numOfBlanks > originalWord.size())
+		numOfBlanks = originalWord.size();
 
 	for (short s = 0; s < numOfBlanks; s++)
 	{
