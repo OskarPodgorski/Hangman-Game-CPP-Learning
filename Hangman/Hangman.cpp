@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <sstream>
 #include "Words.h"
 #include "Helper.h"
 #include "Game.h"
@@ -12,10 +13,14 @@ int main()
 	cout << game.GetWordProgress() << endl;
 
 	int chances = game.GetChances();
+	ostringstream strInt;
 
 	while (chances > 0)
 	{
-		cout << chances << endl;
+		strInt << "You have " << chances << " chances left";
+		cout << strInt.str() << endl;
+		strInt.clear();
+
 		cout << "Input letter: ";
 		char letter;
 		cin >> letter;
