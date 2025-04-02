@@ -17,6 +17,7 @@ public:
 	bool TryLetter(const char& letter);
 	int GetChances() const;
 	std::string GetWordProgress() const;
+	bool CheckWin() const;
 
 private:
 

@@ -15,9 +15,7 @@ int main()
 	ostringstream strInt;
 
 	while (chances > 0)
-	{ 
-		//system("cls");
-
+	{
 		cout << game.GetWordProgress() << endl;
 		strInt << "You have " << chances << " chances left";
 		cout << strInt.str() << endl;
@@ -27,13 +25,24 @@ int main()
 		char letter;
 		cin >> letter;
 
+		system("cls");
+
 		bool isCorrect = game.TryLetter(letter);
 
 		if (isCorrect)
+		{
 			cout << "Good" << endl;
+
+			if (game.CheckWin())
+			{
+				cout << "You win !!!";
+				break;
+			}
+		}
 		else
 		{
 			cout << "Wrong" << endl;
+
 			chances = game.GetChances();
 		}
 	}

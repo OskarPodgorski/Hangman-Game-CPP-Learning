@@ -3,7 +3,7 @@
 Game::Game(const std::string& word)
 {
 	originalWord = word;
-	chances = 4;
+	chances = 5;
 	lettersRemained = 3;
 
 	originalLetters = Helper::StringToCharArray(originalWord);
@@ -26,6 +26,14 @@ int Game::GetChances() const { return static_cast<int>(chances); }
 
 std::string Game::GetWordProgress() const { return modifiedLetters; }
 
+bool Game::CheckWin() const
+{
+	if (lettersRemained <= 0)
+		return true;
+
+	return false;
+}
+
 //private
 
 bool Game::InsertLetterToBlank(const char& letter)
@@ -40,6 +48,8 @@ bool Game::InsertLetterToBlank(const char& letter)
 		if (originalLetters[i] == letter && *modPtr == '_')
 		{
 			*modPtr = letter;
+
+			lettersRemained--;
 			isCorrect = true;
 		}
 	}
