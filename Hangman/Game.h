@@ -24,6 +24,6 @@ private:
 	char* modifiedLetters;
 	unsigned char chances;
 
-	bool ContainsLetter(const char& letter);
+	bool InsertBlankLetter(const char& letter);
 	void MakeBlankSpaces(short numOfBlanks);
 };

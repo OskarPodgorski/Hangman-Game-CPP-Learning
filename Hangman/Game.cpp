@@ -12,7 +12,7 @@ Game::Game(const std::string& word)
 
 bool Game::TryLetter(const char& letter)
 {
-	bool isCorrect = ContainsLetter(letter);
+	bool isCorrect = InsertBlankLetter(letter);
 
 	if (!isCorrect)
 		chances--;
@@ -29,18 +29,22 @@ std::string Game::GetWordProgress() const
 
 //private
 
-bool Game::ContainsLetter(const char& letter)
+bool Game::InsertBlankLetter(const char& letter)
 {
+	bool isCorrect = false;
 	size_t size = originalWord.size();
 
 	for (size_t i = 0; i < size; i++)
 	{
-		if (originalLetters[i] == letter)
+		char* modPtr = &modifiedLetters[i];
+
+		if (originalLetters[i] == letter && *modPtr == '_')
 		{
-			return true;
+			*modPtr = letter;
+			isCorrect = true;
 		}
 	}
-	return false;
+	return isCorrect;
 }
 
 void Game::MakeBlankSpaces(short numOfBlanks)
