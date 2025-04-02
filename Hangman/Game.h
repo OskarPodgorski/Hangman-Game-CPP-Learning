@@ -1,7 +1,8 @@
 #include <string>
 #include <cstring>
 #include <iostream>
-#include "Helper.h";
+#include "Helper.h"
+#include <unordered_set>
 
 #pragma once
 class Game
@@ -24,5 +25,5 @@ private:
 	unsigned char chances;
 
 	bool ContainsLetter(const char& letter);
-	void MakeBlankSpaces();
+	void MakeBlankSpaces(short numOfBlanks);
 };

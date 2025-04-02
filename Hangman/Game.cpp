@@ -7,7 +7,7 @@ Game::Game(const std::string& word)
 	originalLetters = Helper::StringToCharArray(originalWord);
 	modifiedLetters = Helper::StringToCharArray(originalWord);
 
-	MakeBlankSpaces();
+	MakeBlankSpaces(3);
 }
 
 bool Game::TryLetter(const char& letter)
@@ -43,11 +43,20 @@ bool Game::ContainsLetter(const char& letter)
 	return false;
 }
 
-void Game::MakeBlankSpaces()
+void Game::MakeBlankSpaces(short numOfBlanks)
 {
-	int blankLetterIndex = Helper::GetRandomInt(0, originalWord.size() - 1);
+	std::unordered_set<int> alreadyUsedIndexes;
 
-	modifiedLetters[blankLetterIndex] = '_';
+	for (short s = 0; s < numOfBlanks; s++)
+	{
+		int blankLetterIndex;
+
+		do
+			blankLetterIndex = Helper::GetRandomInt(0, originalWord.size() - 1);
+		while (!alreadyUsedIndexes.insert(blankLetterIndex).second);
+
+		modifiedLetters[blankLetterIndex] = '_';
+	}
 }
 
 Game::~Game()
